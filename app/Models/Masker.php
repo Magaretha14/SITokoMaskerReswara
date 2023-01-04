@@ -9,5 +9,5 @@ class Masker extends Model
 {
     //use HasFactory;
     protected $table = 'masker';
-    protected $fillable = ['nama_masker','harga_masker','jenis_masker'];
+    protected $fillable = ['nama_masker','harga_masker','jenis_masker','Stok'];
 }

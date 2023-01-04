@@ -8,10 +8,15 @@ class KeluarController extends Controller
 {
     //Controller untuk tabel barang keluar
     //Menampilkan data pada tabel barang keluar.
-    public function index()
+    public function index(Request $request)
     {
-        $barang_keluar = \App\Models\Keluar::all();
-        return view('keluar.index',['barang_keluar' => $barang_keluar]);
+        if($request->has('cari')){
+            $barang_keluar = \App\Models\Keluar::where('nama_barang_keluar', 'LIKE', '%'.$request->cari.'%')->get();
+        }else{
+            $barang_keluar = \App\Models\Keluar::all();
+        }
+        return view('keluar.index', ['barang_keluar' => $barang_keluar]);
+        
     }
 
     //Menambahkan data pada tabel barang keluar.

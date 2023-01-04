@@ -50,6 +50,13 @@ id="exampleInputEmail1"
                     aria-describedby="EmailHelp" placeholder="Jenis Masker" value="{{ $masker->jenis_masker }}">
                     </div>
 
+                    <div class="form-group mb-3">
+                        <label for="exampleInputEmail1">Stok</label>
+                        <input name="Stok" type="text" class="form-control mt-2"
+id="exampleInputEmail1"
+                    aria-describedby="EmailHelp" placeholder="Stokr" value="{{ $masker->Stok }}">
+                    </div>
+
                     <div class="form-group mt-5">
                         <button type="submit" class="btn btn-primary">Update</button>
                         <a href="/masker" class="btn btn-danger mx3">Cancel</a>

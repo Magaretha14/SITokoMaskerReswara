@@ -8,9 +8,13 @@ class MaskerController extends Controller
 {
     //Controller untuk tabel masker
     //Menampilkan tabel masker
-    public function index()
+    public function index(Request $request)
     {
-        $tabel_masker = \App\Models\Masker::all();
+        if($request->has('cari')){
+            $tabel_masker = \App\Models\Masker::where('nama_masker', 'LIKE', '%'.$request->cari.'%')->get();
+        }else{
+            $tabel_masker = \App\Models\Masker::all();
+        }
         return view('masker.index', ['tabel_masker' => $tabel_masker]);
     }
 

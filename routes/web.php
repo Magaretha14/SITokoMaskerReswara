@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +16,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    //return view('auth.login');
+    return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+
+Route::get('/loginadmin', [App\Http\Controllers\adminlogin::class, 'index']);
 
 //Route untuk tabel masker
 Route::get('/masker', [App\Http\Controllers\MaskerController::class, 'index'])->name('masker');
@@ -54,4 +61,12 @@ Route::post('/keluar/{id}/update', [App\Http\Controllers\KeluarController::class
 
 Route::get('/keluar/delete/{id}', [App\Http\Controllers\KeluarController::class, 'delete']);
 
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('auth');
 
+Route::get('/showdata', [App\Http\Controllers\showdataController::class, 'index'])->name('showdata');
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

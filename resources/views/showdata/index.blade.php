@@ -40,16 +40,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="/masker">Data Masker</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/masuk">Barang Masuk</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/keluar">Barang Keluar</a>
-                    </li>
+              
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -102,7 +93,7 @@
         @endif
         <div class="row">
             <div class="col-4 my-3">
-                <h1>Data Barang Masuk</h1>
+                <h1>Data Masker</h1>
             </div>
 
             <div class="col-5 my-4">
@@ -112,42 +103,27 @@
                 </form>
             </div>
 
-            <div class="col-3 my-4" align="right">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal"
-                    data-target="#exampleModal">
-                    Tambah Data
-                </button>
-
             </div>
 
             <div class="table-responsive">
                 <table class="table table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">No.</th>
-                            <th>NAMA BARANG</th>
-                            <th>JUMLAH BARANG</th>
-                            <th>HARGA BARANG</th>
-                            <th>TOTAL HARGA BARANG</th>
-                            <th>TANGGAL BARANG MASUK</th>
-                            <th>ACTION</th>
+                            <th scope="col">NO.</th>
+                            <th>NAMA MASKER</th>
+                            <th>HARGA MASKER</th>
+                            <th>JENIS MASKER</th>
+                            <th>STOK</th>
                         </tr>
                     </thead>
-                    @foreach ($barang_masuk as $masuk)
+                    @foreach ($tabel_masker as $masker)
                     <tbody>
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $masuk->nama_barang_masuk }}</td>
-                            <td>{{ $masuk->jumlah_barang_masuk }}</td>
-                            <td>{{ $masuk->harga_barang }}</td>
-                            <td>{{ $masuk->total_harga_barang }}</td>
-                            <td>{{ $masuk->tanggal_barang_masuk }}</td>
-                            <td>
-                                    <a HREF="/masuk/{{$masuk->id}}/edit" class="btn btn-warning bgn-sm">Edit</a>
-                                    <a href="/masuk/delete/{{$masuk->id}}" class="btn btn-danger bgn-sm" onclick="return confirm('Apakah anda akan menghapus data ini?')">Delete</a>
-                                </td>
-
+                            <td>{{ $masker->nama_masker }}</td>
+                            <td>{{ $masker->harga_masker }}</td>
+                            <td>{{ $masker->jenis_masker }}</td>
+                            <td>{{ $masker->stok }}</td>
                         </tr>
                     </tbody>
                     @endforeach
@@ -167,34 +143,23 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('add.msk') }}" method="POST">
+                    <form action="{{ route('add.masker') }}" method="POST">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nama Barang</label>
-                            <input name="nama_barang_masuk" type="text" class="form-control" id="exampleInputEmail1" Web Application
+                            <label for="exampleInputEmail1">Nama Masker</label>
+                            <input name="nama_masker" type="text" class="form-control" id="exampleInputEmail1" Web Application
                                 Development Information Technology UMY 8 | W e b A p p l i c a t i o n D e v e l o p m e
-                                n t aria-describedby="EmailHelp" placeholder="Nama Barang Masuk">
+                                n t aria-describedby="EmailHelp" placeholder="Nama Masker">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Jumlah Barang</label>
-                            <input name="jumlah_barang_masuk" type="text" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="EmailHelp" placeholder="Jumlah_Barang_masuk">
+                            <label for="exampleInputEmail1">Harga Masker</label>
+                            <input name="harga_masker" type="text" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="EmailHelp" placeholder="Harga Masker">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Harga Barang</label>
-                            <input name="harga_barang" type="text" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="EmailHelp" placeholder="Harga_Barang">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Total Harga Barang</label>
-                            <input name="total_harga_barang" type="text" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="EmailHelp" placeholder="Total_Harga_Barang">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Tanggal Barang Masuk</label>
-                            <input name="tanggal_barang_masuk" type="text" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="EmailHelp" placeholder="Tanggal_Barang_Masuk">
+                            <label for="exampleInputEmail1">Jenis Masker</label>
+                            <input name="jenis_masker" type="text" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="EmailHelp" placeholder="Jenis Masker">
                         </div>
                         
                 </div>

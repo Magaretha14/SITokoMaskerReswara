@@ -29,7 +29,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+            Toko Masker Reswara
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -40,9 +40,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="/home">Home</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="/masker">Data Masker</a>
                     </li>
@@ -131,6 +129,7 @@
                             <th>NAMA Masker</th>
                             <th>HARGA Masker</th>
                             <th>Jenis Masker</th>
+                            <th>STOK</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>
@@ -141,6 +140,7 @@
                             <td>{{ $masker->nama_masker }}</td>
                             <td>{{ $masker->harga_masker }}</td>
                             <td>{{ $masker->jenis_masker }}</td>
+                            <td>{{ $masker->Stok }}</td>
                             <td>
                                     <a HREF="/masker/{{$masker->id}}/edit" class="btn btn-warning bgn-sm">Edit</a>
                                     <a href="/masker/delete/{{$masker->id}}" class="btn btn-danger bgn-sm" onclick="return confirm('Apakah anda akan menghapus data ini?')">Delete</a>
@@ -181,6 +181,11 @@
                             <label for="exampleInputEmail1">Jenis Masker</label>
                             <input name="jenis_masker" type="text" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="EmailHelp" placeholder="Jenis Masker">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Stok</label>
+                            <input name="Stok" type="text" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="EmailHelp" placeholder="Stok">
                         </div>
                         
                 </div>

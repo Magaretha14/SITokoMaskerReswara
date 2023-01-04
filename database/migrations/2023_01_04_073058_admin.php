@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableMasker extends Migration
+class Admin extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateTableMasker extends Migration
      */
     public function up()
     {
-        Schema::create('masker', function (Blueprint $table) {
+        Schema::create('admin', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_masker');
-            $table->string('harga_masker');
-            $table->string('jenis_masker');
-            $table->integer('Stok');
+            $table->string('aName');
+            $table->string('aPass');
+            $table->string('aEmail')->unique();
+            $table->string('aAddress');
+            $table->string('aPhone');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateTableMasker extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('masker');
+        Schema::dropIfExists('admin');
     }
 }

@@ -8,10 +8,15 @@ class MasukController extends Controller
 {
     //Membuat controller untuk tabel barang masuk
     //Menampilkan data pada tabel barang masuk
-    public function index()
+    public function index(Request $request)
     {
-        $barang_masuk = \App\Models\Masuk::all();
-        return view('masuk.index',['barang_masuk' => $barang_masuk]);
+        if($request->has('cari')){
+            $barang_masuk = \App\Models\Masuk::where('nama_barang_masuk', 'LIKE', '%'.$request->cari.'%')->get();
+        }else{
+            $barang_masuk = \App\Models\Masuk::all();
+        }
+        return view('masuk.index', ['barang_masuk' => $barang_masuk]);
+        
     }
 
     //Menambahkan data pada tabel barang masuk
