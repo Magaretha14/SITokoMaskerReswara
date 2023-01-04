@@ -26,7 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
 
-Route::get('/loginadmin', [App\Http\Controllers\adminlogin::class, 'index']);
+Route::get('/loginadmin', [App\Http\Controllers\Adminlogin::class, 'index']);
 
 //Route untuk tabel masker
 Route::get('/masker', [App\Http\Controllers\MaskerController::class, 'index'])->name('masker');

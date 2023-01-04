@@ -123,7 +123,7 @@
                             <td>{{ $masker->nama_masker }}</td>
                             <td>{{ $masker->harga_masker }}</td>
                             <td>{{ $masker->jenis_masker }}</td>
-                            <td>{{ $masker->stok }}</td>
+                            <td>{{ $masker->Stok }}</td>
                         </tr>
                     </tbody>
                     @endforeach
